@@ -4,17 +4,13 @@ import {Dashboard, HallOfFame, RegistrationAndLogin, NotFound} from "./Pages"
 
 const App = () => {
 
-  // Here I will need to define my paths
-
-  // you have to make 3 or 4 pages which one has to be login and nav and footer should not be accessible
+  // The App should be responsive to all devices
 
   // remember that you want the footer andd nav to show when all pages are accessed
 
 
 
   // you need to document yourself of how to write your css when yu work in react because last react project has a lot of css code that was overwritten multiple times without use
-
-
 
 
 
