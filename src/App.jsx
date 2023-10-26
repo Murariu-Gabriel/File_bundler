@@ -1,6 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom"
 import {Dashboard, HallOfFame, RegistrationAndLogin, NotFound} from "./Pages"
 
+import "./SCSS/global.scss"
+
 
 const App = () => {
 

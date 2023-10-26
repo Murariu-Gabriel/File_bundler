@@ -1,3 +1,7 @@
+import Login from "./Login/Login"
+
+import loginStyle from "./registration.module.scss"
+
 const RegistrationAndLogin = () => {
 
   //          PLAN
@@ -26,7 +30,14 @@ const RegistrationAndLogin = () => {
 
 
   return (
-    <div>RegistrationAndLogin</div>
+    // className here should be registration
+    <section className={loginStyle.login}>
+      {/* className here should be container */}
+      <div className={loginStyle.container}>
+        <Login />
+        {/* <Register /> */}
+      </div>
+    </section>
   )
 }
 export default RegistrationAndLogin

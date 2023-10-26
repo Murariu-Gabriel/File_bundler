@@ -1,0 +1,63 @@
+// In here there will be stored all the styles that should be accessible globally
+
+@use "../SCSS/Abstracts/index.scss" as *;
+
+// global resets
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    // you will need to decide on a font
+    font-family: Arial, sans-serif;
+}
+
+body{
+  // background-color: #f3f3f3;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+
+  &:hover{
+    color: bisque;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input { 
+ 
+  &:not([type="checkbox"]){
+    
+    font-weight: bold;
+    // border: 2px solid $gray;
+    border: none;
+    border-bottom: 2px solid $gray;
+    padding: $s_spacing $s_padding + 0.3rem;
+    caret-color: orange;
+    width: 100%;
+  }
+
+  &::placeholder{
+    color: $gray;
+  }
+  
+  &:focus {
+    outline: none;
+    // border: 2px solid orange;
+
+    // outline doesn't seem to move things around
+    // outline: 2px solid orange;
+  }
+}
+
+// classes needed in general
+
+
+
