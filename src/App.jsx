@@ -15,6 +15,12 @@ const App = () => {
   // you need to document yourself of how to write your css when yu work in react because last react project has a lot of css code that was overwritten multiple times without use
 
 
+  // you need to decide an background color
+
+  // a text color
+
+  // and an accent color
+
 
   return (
     <>

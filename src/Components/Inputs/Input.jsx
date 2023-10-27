@@ -6,7 +6,7 @@ const Input = ({type, htmlFor, label, placeholder, icon, errorMessage}) => {
 
 
   return (
-    <div>
+    <div className="input_container">
       {icon ? icon : ""}
       <label htmlFor={htmlFor}>{label}</label>
       <input
@@ -14,6 +14,7 @@ const Input = ({type, htmlFor, label, placeholder, icon, errorMessage}) => {
         name={htmlFor}
         id={htmlFor}
         placeholder={placeholder}
+        autoComplete="true"
       />
 
 

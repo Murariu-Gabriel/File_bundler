@@ -1,0 +1,15 @@
+@mixin button($color, $text_color, $spacing){
+    color: $text_color;
+    border: none;
+    border-radius: $input_border_radius;
+    background: $color;
+    margin-top: $s_spacing;
+    padding: $spacing;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in ;
+    text-transform: capitalize;
+
+    &:hover{
+        background-color: darken($color, 15%);
+    }
+}

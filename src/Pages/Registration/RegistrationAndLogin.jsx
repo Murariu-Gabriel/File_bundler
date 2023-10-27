@@ -1,15 +1,29 @@
-import Login from "./Login/Login"
+import { useState } from "react"
 
-import loginStyle from "./registration.module.scss"
+import Login from "./Login/Login"
+import SignUp from "./SignUp/SignUp"
+
+// import loginStyle from "./registration.module.scss"
+
+import "./registration.scss"
+
 
 const RegistrationAndLogin = () => {
+  const [loginOrSignUp, setLoginOrSignUp] = useState(true)
+  const [animationToggle, setAnimationToggle] = useState(true)
+
+
+
+  const toggleSetLoginOrSignUp = () => {
+    setAnimationToggle(!animationToggle)
+    
+    setTimeout(() => {
+      setLoginOrSignUp(!loginOrSignUp)
+    }, 500)
+
+  }
 
   //          PLAN
-
-  // big pointer - I want to make login and register get swapped with an animation 
-
-  // the transition in between them should possible from both sides
-
 
   //    Login
 
@@ -27,15 +41,21 @@ const RegistrationAndLogin = () => {
   // All the password requirements will need to be listed somewhere so the user knows how to write it
 
 
-
+// NOTE, You will still need to implement validation
 
   return (
-    // className here should be registration
-    <section className={loginStyle.login}>
-      {/* className here should be container */}
-      <div className={loginStyle.container}>
-        <Login />
-        {/* <Register /> */}
+    <section className="registration">
+ 
+      <div
+        className={`container ${loginOrSignUp ? "" : "transition_height"}`}
+      >
+        <div className={`transition_div ${animationToggle ? "initial" : "active"} `}></div>
+
+        {loginOrSignUp ? (
+          <Login switchComponent={toggleSetLoginOrSignUp} />
+        ) : (
+          <SignUp switchComponent={toggleSetLoginOrSignUp} />
+        )}
       </div>
     </section>
   )

@@ -3,7 +3,7 @@ import PasswordInput from "../../../Components/Inputs/PasswordInput"
 
 // import loginStyle from "./login.module.scss"
 
-const Login = () => {
+const Login = ({ switchComponent, animationTrigger}) => {
   // when login is clicked send formData to API
 
   const handleSignUp = () => {}
@@ -54,29 +54,30 @@ const Login = () => {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 16 16"
             height="1.3rem"
             width="1.3rem"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M11.5 8h-7a1 1 0 00-1 1v5a1 1 0 001 1h7a1 1 0 001-1V9a1 1 0 00-1-1zm-7-1a2 2 0 00-2 2v5a2 2 0 002 2h7a2 2 0 002-2V9a2 2 0 00-2-2h-7zm0-3a3.5 3.5 0 117 0v3h-1V4a2.5 2.5 0 00-5 0v3h-1V4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         }
       />
 
-      <button>Login</button>
+      <button className="button_1">Login</button>
 
-      {/* <div> */}
-
-      <span>Or Sign Up using </span>
-      <button type="button"> sign up</button>
-
-      {/* </div> */}
+      <div className="got_to_sign_up">
+        <span>Or Sign Up using </span>
+        <button className="button_1" type="button" onClick={() => {switchComponent()}}>
+          {" "}
+          sign up
+        </button>
+      </div>
     </form>
   )
 }
