@@ -1,20 +1,51 @@
 import { useState } from "react"
 
-const PasswordInput = ({ type, htmlFor, label, placeholder, icon, errorMessage }) => {
-    const [showPassword, setShowPassword] = useState(false)
+const PasswordInput = ({
+  type,
+  htmlFor,
+  label,
+  placeholder,
+  icon,
+  passwordRules,
+  register,
+  errors,
+  validation,
+}) => {
+  const [showPassword, setShowPassword] = useState(false)
+  const [showMessage, setShowMessage] = useState(false)
 
   // might need to make controlled PasswordInput
 
   return (
-    <div className="input_container">
+    <div
+      className={`input_container ${
+        errors[htmlFor]?.message && "input_container_error"
+      }`}
+    >
       {icon ? icon : ""}
       <label htmlFor={htmlFor}>{label}</label>
+
+      {showMessage && <p className="floating_message">{passwordRules} </p>}
+
+      {passwordRules && (
+        <button
+          className="button_2"
+          onMouseEnter={() => setShowMessage(true)}
+          onMouseLeave={() => setShowMessage(false)}
+        >
+          ?
+        </button>
+      )}
+
+      <span>{errors[htmlFor]?.message}</span>
+
       <input
         type={showPassword ? "text" : type}
         name={htmlFor}
         id={htmlFor}
         placeholder={placeholder}
         autoComplete="true"
+        {...register(htmlFor, validation)}
       />
 
       <button
@@ -54,8 +85,6 @@ const PasswordInput = ({ type, htmlFor, label, placeholder, icon, errorMessage }
           <line x1="1" y1="1" x2="23" y2="23"></line>
         </svg>
       </button>
-
-      <span>{/* Error message */}</span>
     </div>
   )
 }
