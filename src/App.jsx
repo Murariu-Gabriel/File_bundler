@@ -1,10 +1,17 @@
-import { Link, Route, Routes } from "react-router-dom"
+import { Link, Route, Routes, useLocation } from "react-router-dom"
+import Footer from "./Components/Footer/Footer"
+import Navigation from "./Components/NavigationBar/NavigationBar"
 import {Dashboard, HallOfFame, RegistrationAndLogin, NotFound} from "./Pages"
 
 import "./SCSS/global.scss"
 
 
 const App = () => {
+  const location = useLocation()
+  const isLocationRegistration = location.pathname === "/RegistrationAndLogin"
+
+
+
 
   // The App should be responsive to all devices
 
@@ -24,17 +31,21 @@ const App = () => {
 
   return (
     <>
-    
-    {/* Here we will have the nav */}
+      {/* NAV */}
+      {!isLocationRegistration && <Navigation />}
 
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/FameHall" element={<HallOfFame />} />
-      <Route path="/RegistrationAndLogin" element={<RegistrationAndLogin />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    
-    {/* Here we will have the footer */}
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/FameHall" element={<HallOfFame />} />
+        <Route
+          path="/RegistrationAndLogin"
+          element={<RegistrationAndLogin />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      
+      {/* FOOTER */}
+      {!isLocationRegistration && <Footer />}
     </>
 
     // <div>

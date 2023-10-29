@@ -90,6 +90,14 @@ a {
   }
 }
 
+.link{
+    color: $white;
+
+     &:hover {
+    color: bisque;
+  }
+}
+
 ul {
   list-style: none;
   padding: 0;

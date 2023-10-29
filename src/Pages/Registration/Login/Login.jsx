@@ -1,4 +1,5 @@
 import {useForm} from "react-hook-form"
+import {useNavigate } from "react-router-dom"
 
 import Input from "../../../Components/Inputs/Input"
 import PasswordInput from "../../../Components/Inputs/PasswordInput"
@@ -14,6 +15,8 @@ const Login = ({ switchForm}) => {
       password: ""
     }
   })
+
+   const navigate = useNavigate()
   
   const { register,setError, control, handleSubmit, formState, reset, clearErrors } =form
   const { errors, isDirty, isValid } = formState
@@ -29,6 +32,13 @@ const Login = ({ switchForm}) => {
 
     // based on what the api will send back you will have to display error
    
+    // if api response is 200 or and ok send user to dashboard
+    navigate("/")   
+
+
+
+
+
 
 
     // console.log(data)

@@ -1,3 +1,8 @@
+
+
+import { Link } from "react-router-dom"
+import "./navigationBar.scss"
+
 const NavigationBar = () => {
 
     // will need an user bubble with the image of the user 
@@ -11,7 +16,34 @@ const NavigationBar = () => {
     // on phone you might need a hamburger menu
 
   return (
-    <div>NavigationBar</div>
+    <section className="navigation_bar">
+      NavigationBar
+      {/* we should have a logo here */}
+
+      {/* The links here direct to the same page which is not a problem at first
+        - you need to figure out a way to direct the user to the register when he clicks 
+
+        First interpretation
+
+        - maybe I can pass something to link and based on it make the register page load the form accordingly 
+        - you may need to go back to the react router tutorial and take a look around
+
+      */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/RegistrationAndLogin" className="link">
+              log in
+            </Link>
+          </li>
+          <li>
+            <Link to="/RegistrationAndLogin" className="link">
+              join us
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </section>
   )
 }
 export default NavigationBar
