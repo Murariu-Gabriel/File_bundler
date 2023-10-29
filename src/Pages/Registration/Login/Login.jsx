@@ -5,7 +5,7 @@ import PasswordInput from "../../../Components/Inputs/PasswordInput"
 
 // import loginStyle from "./login.module.scss"
 
-const Login = ({ switchComponent}) => {
+const Login = ({ switchForm}) => {
 
 
   const form = useForm({
@@ -34,6 +34,8 @@ const Login = ({ switchComponent}) => {
     // console.log(data)
 
     // EXAMPLE OF HOW TO SET ERROR IF BACKEND SENDS BACK ERROR
+
+    // ATTENTION: this will work only if the other validation doesn't give error
     // console.log(data.userName)
     // if (data.userName === "a") {
     //   setError("userName", {
@@ -109,9 +111,7 @@ const Login = ({ switchComponent}) => {
         <button
           className="button_1"
           type="button"
-          onClick={() => {
-            switchComponent()
-          }}
+          onClick={switchForm}
         >
           {" "}
           sign up

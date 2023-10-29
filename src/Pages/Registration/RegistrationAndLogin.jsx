@@ -6,11 +6,13 @@ import SignUp from "./SignUp/SignUp"
 // import loginStyle from "./registration.module.scss"
 
 import "./registration.scss"
+import TransitionContainer from "./TransitionContainer"
 
 
 const RegistrationAndLogin = () => {
   const [loginOrSignUp, setLoginOrSignUp] = useState(true)
   const [animationToggle, setAnimationToggle] = useState(true)
+  const [registrationSuccess, setRegistrationSuccess] = useState(false)
 
 
 
@@ -23,6 +25,16 @@ const RegistrationAndLogin = () => {
 
   }
 
+  const closeSuccessTransition = () => {
+    setAnimationToggle(!animationToggle)
+    setLoginOrSignUp(!loginOrSignUp)
+    toggleRegistrationSuccess()
+  }
+
+  const toggleRegistrationSuccess = () => {
+    setRegistrationSuccess(!registrationSuccess)
+  }
+
   //          PLAN
 
   //    Login
@@ -32,29 +44,52 @@ const RegistrationAndLogin = () => {
  
   //    Register
 
-  // you need to decide what inputs you will have
-  // for now it will be full name | email | password | repeat password
-  
-  // ? question: will some of the validation be made on frontend? It seems tedious for the user to not have some directors 
+      // Might still need some polish but after the colors are set
 
-
-  // All the password requirements will need to be listed somewhere so the user knows how to write it
-
-
-// NOTE, You will still need to implement validation
 
   return (
     <section className="registration">
- 
-      <div
-        className={`container ${loginOrSignUp ? "" : "transition_height"}`}
-      >
-        <div className={`transition_div ${animationToggle ? "initial" : "active"} `}></div>
+      <div className={`container ${loginOrSignUp ? "" : "transition_height"}`}>
+        {/* <div
+          className={`transition_div ${animationToggle ? `` : "active"} 
+            ${registrationSuccess ? "sign_up_success" : ""}
+
+          `}
+        >
+          <div className={`${registrationSuccess ? "" : "hide"}`}>
+            <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fillRule="evenodd">
+                <circle fill="#D87D4A" cx="32" cy="32" r="32" />
+                <path
+                  stroke="#FFF"
+                  strokeWidth="4"
+                  d="m20.754 33.333 6.751 6.751 15.804-15.803"
+                />
+              </g>
+            </svg>
+
+            <p>Registration successful!</p>
+
+            <button
+              className="button_1"
+              onClick={() => {
+               closeSuccessTransition()
+              }}
+            >
+              Go to Login
+            </button>
+          </div>
+        </div> */}
+
+        <TransitionContainer {...{ animationToggle, registrationSuccess, closeSuccessTransition }}/>
 
         {loginOrSignUp ? (
-          <Login switchComponent={toggleSetLoginOrSignUp} />
+          <Login switchForm={toggleSetLoginOrSignUp} />
         ) : (
-          <SignUp switchComponent={toggleSetLoginOrSignUp} />
+          <SignUp
+            switchForm={toggleSetLoginOrSignUp}
+            toggleRegistrationSuccess={toggleRegistrationSuccess}
+          />
         )}
       </div>
     </section>

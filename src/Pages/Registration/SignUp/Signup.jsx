@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form"
 import Input from "../../../Components/Inputs/Input"
 import PasswordInput from "../../../Components/Inputs/PasswordInput"
 
-const SignUp = ({ switchComponent }) => {
-
+const SignUp = ({ switchForm, toggleRegistrationSuccess }) => {
   const form = useForm({
     defaultValues: {
       userName: "",
@@ -12,7 +11,15 @@ const SignUp = ({ switchComponent }) => {
     },
   })
 
-  const { register, setError, control, handleSubmit, formState, reset, clearErrors } = form
+  const {
+    register,
+    setError,
+    control,
+    handleSubmit,
+    formState,
+    reset,
+    clearErrors,
+  } = form
   const { errors, isDirty, isValid } = formState
 
   const handleForm = (data) => {
@@ -27,13 +34,13 @@ const SignUp = ({ switchComponent }) => {
 
     // if api response is ok or 200 move user to dashboard
 
+    // AFTER REGISTRATION SUCCESS
+
+    // slide down the transition div in place with a a message and a button to redirect to login
+
+    toggleRegistrationSuccess()
+    console.log(data)
     console.log(data.userName)
-    if(data.userName === "a") {
-        setError("userName", {
-            type: "manual",
-            message: "idk error"
-        })
-    }
 
     // e.currentTarget.reset()
   }
@@ -68,7 +75,7 @@ const SignUp = ({ switchComponent }) => {
       <Input
         label={"Email"}
         type={"email"}
-        htmlFor={"Email"}
+        htmlFor={"email"}
         placeholder={"Type your email"}
         icon={
           <svg
@@ -125,7 +132,7 @@ const SignUp = ({ switchComponent }) => {
       <PasswordInput
         label={"Confirm password"}
         type={"password"}
-        htmlFor={"confirm_password"}
+        htmlFor={"confirmPassword"}
         placeholder={"Type your password"}
         icon={
           <svg
@@ -155,7 +162,7 @@ const SignUp = ({ switchComponent }) => {
 
       <span>or</span>
 
-      <button type="button" className="button_1" onClick={switchComponent}>
+      <button type="button" className="button_1" onClick={switchForm}>
         Login
       </button>
     </form>

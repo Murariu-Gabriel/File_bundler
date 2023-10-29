@@ -29,11 +29,11 @@ const PasswordInput = ({
 
       {passwordRules && (
         <button
-          className="button_2"
+          className="button_3"
           onMouseEnter={() => setShowMessage(true)}
           onMouseLeave={() => setShowMessage(false)}
         >
-          ?
+         ?
         </button>
       )}
 

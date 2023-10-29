@@ -11,8 +11,70 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+// I need to chose 4 colors 
+
+// background
+// thing that will sit on top of background
+// things to be
+// footer nav color
+// accent/button color
+
 body {
-  // background-color: #f3f3f3;
+
+  
+  // background-color: #000000;
+  // color: #F0F0F0;
+
+  // accent
+  // color: #00A5FF;
+
+
+
+  
+   // valve classic
+  // background-color: darkgray;
+  // color: $white;
+
+  //half life 
+  // background-color: darkgray;
+  // color: $white;
+
+  // left 4 dead
+  // background-color: #3D9A3D;
+  // color: darkgray;
+
+  // cs go
+  // background-color: #2C3E50;
+  // color:  White;
+
+  // tf2
+  // background-color: #F4E2A6;
+  // color:  #3A2F0B;
+
+  .button_1{
+
+    //valve classic
+    // background-color: #FF6600;
+    // background-color: #007ACC;
+
+    //half life 
+    // background-color: #FF6D00;
+    // background-color: #A8FF00;
+
+    //left 4 dead
+    // background-color: #FF0000;
+
+    //cs go
+    // background-color: #F1C40F;
+    // background-color: #3498DB;
+
+    //tf2
+    // background-color: #0000FF;
+    // background-color: #FF0000;
+
+  }
+ 
 }
 
 button{
@@ -153,6 +215,21 @@ input {
 
   &:hover{
       color: orange
+  }
+}
+
+.button_3{
+  border: none;
+  padding: 0 0.3rem;
+  border-radius: 50%;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in, box-shadow 0.3s ease-in-out ;
+
+   &:hover{
+      color: orange;
+      box-shadow: 0px 0px 3px 2px rgba(108, 108, 108, 0.3);
   }
 }
 
