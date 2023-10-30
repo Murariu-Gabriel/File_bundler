@@ -18,24 +18,24 @@
         align-items: center;
         justify-content: space-between;
         padding: $m_padding;
-        // overflow: hidden;
-        
+       
 
 
         // take care the height takes more space than it should
 
         nav{
-            display: none;
+            // display: none;
             position: absolute;
             padding: $m_padding;
             width: 200px;
-            height: 100%;
-            background-color: black;
-            right: -50%;
+            height: 100vh;
+            background-color: $black;
+            left: -100%;
             top: 60px;
             z-index: 2;
             
-            transition: right 0.3s ease-in-out;
+            transition: left 0.3s ease-in-out, display 200ms;
+            
             
             
             ul{
@@ -60,9 +60,10 @@
 
         .toggleNav{
             display: block;
-
-            right: 0;
+            left: 0px;
         }
+
+       
 
 
         // this has been taken from codepen and has been adapted to scss
@@ -176,6 +177,7 @@
                 display: block;
                 position: static;
                 width: 100%;
+                height: initial;
                 padding: 0;
               
 

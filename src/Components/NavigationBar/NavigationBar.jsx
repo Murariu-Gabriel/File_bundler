@@ -19,6 +19,15 @@ const NavigationBar = () => {
   return (
     <section className="navigation_bar">
       <div className="container">
+        <div
+          className={`hamburger ${toggleHamburger ? "open" : ""}`}
+          onClick={() => setToggleHamburger(!toggleHamburger)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         NavigationBar
         {/* we should have a logo here */}
         {/* The links here direct to the same page which is not a problem at first
@@ -64,18 +73,8 @@ const NavigationBar = () => {
                 hall of fame
               </Link>
             </li>
-
           </ul>
         </nav>
-        <div
-          className={`hamburger ${toggleHamburger ? "open" : ""}`}
-          onClick={() => setToggleHamburger(!toggleHamburger)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
     </section>
   )
