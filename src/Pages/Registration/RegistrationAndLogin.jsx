@@ -7,6 +7,8 @@ import SignUp from "./SignUp/SignUp"
 
 import "./registration.scss"
 import TransitionContainer from "./TransitionContainer"
+import { useLocation } from "react-router-dom"
+import { useEffect } from "react"
 
 
 const RegistrationAndLogin = () => {
@@ -14,7 +16,7 @@ const RegistrationAndLogin = () => {
   const [animationToggle, setAnimationToggle] = useState(true)
   const [registrationSuccess, setRegistrationSuccess] = useState(false)
 
-
+  const location = useLocation()
 
   const toggleSetLoginOrSignUp = () => {
     setAnimationToggle(!animationToggle)
@@ -35,6 +37,12 @@ const RegistrationAndLogin = () => {
     setRegistrationSuccess(!registrationSuccess)
   }
 
+
+  useEffect(() => {
+    if (location.state === "register") {
+      toggleSetLoginOrSignUp()
+    }
+  }, [location.state])
   //          PLAN
 
   //    Login

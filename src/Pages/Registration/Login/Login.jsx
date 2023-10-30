@@ -33,7 +33,7 @@ const Login = ({ switchForm}) => {
     // based on what the api will send back you will have to display error
    
     // if api response is 200 or and ok send user to dashboard
-    navigate("/")   
+    navigate("/", {replace: true})   
 
 
 

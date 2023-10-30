@@ -21,7 +21,8 @@
 // accent/button color
 
 body {
-
+  overflow-x: hidden;
+ 
   
   // background-color: #000000;
   // color: #F0F0F0;
@@ -91,6 +92,9 @@ a {
 }
 
 .link{
+  
+    // border: 1px solid $white;
+    // padding: $s_padding;
     color: $white;
 
      &:hover {
