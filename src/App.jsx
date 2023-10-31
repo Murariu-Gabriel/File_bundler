@@ -1,7 +1,7 @@
 import { Link, Route, Routes, useLocation } from "react-router-dom"
 import Footer from "./Components/Footer/Footer"
 import Navigation from "./Components/NavigationBar/NavigationBar"
-import {Dashboard, HallOfFame, RegistrationAndLogin, NotFound} from "./Pages"
+import {Dashboard, HallOfFame, RegistrationAndLogin, NotFound, ChangeLog} from "./Pages"
 
 import "./SCSS/global.scss"
 
@@ -28,6 +28,10 @@ const App = () => {
 
   // and an accent color
 
+  //STYLES
+
+  //- Container needs global class probably because it is used in footer and nav already with the same styles but doesn't have the same in registration
+
 
   return (
     <>
@@ -41,6 +45,7 @@ const App = () => {
           path="/RegistrationAndLogin"
           element={<RegistrationAndLogin />}
         />
+        <Route path="/changeLog" element={<ChangeLog/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
       

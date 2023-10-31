@@ -1,0 +1,13 @@
+@use "../../SCSS/Abstracts/index.scss" as *;
+
+.footer{
+    background-color: $black;
+    color: $white;
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $m_padding;
+    }
+}

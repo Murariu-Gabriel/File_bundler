@@ -31,7 +31,7 @@
             height: 100vh;
             background-color: $black;
             left: -100%;
-            top: 60px;
+            top: 58px;
             z-index: 2;
             
             transition: left 0.3s ease-in-out, display 200ms;
@@ -70,8 +70,8 @@
         // important note here is that this hamburger is thought ot work on all browsers
 
         .hamburger{
-            width: 40px;
-            height: 36px;
+            width: 30px;
+            height: 34px;
             position: relative;
             // margin: 50px auto;
 
@@ -109,7 +109,7 @@
 
 
                 &:nth-of-type(1){
-                    top: 3px; 
+                    top: 6px; 
                 }
 
                 &:nth-of-type(2){
@@ -121,7 +121,7 @@
                 }
 
                 &:nth-of-type(4){
-                    top: 28px;
+                    top: 24px;
                 }
                 
             }
