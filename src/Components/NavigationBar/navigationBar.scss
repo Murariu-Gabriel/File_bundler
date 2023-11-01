@@ -9,15 +9,11 @@
 .navigation_bar{
     background-color: $black;
     color: $white;
-    
 
     // container will need a max width
 
     .container{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: $m_padding;
+        @include container_centering($m_padding);
        
 
 
@@ -25,11 +21,14 @@
 
         nav{
             // display: none;
-            position: absolute;
-            padding: $m_padding;
-            width: 200px;
-            height: 100vh;
             background-color: $black;
+
+            // this might be a temporary fix, it might need fixing (on big phone heights the nav doesn't go till the end of the screen)
+            height: 89%;  
+            width: 200px;
+            padding: $m_padding;
+
+            position: absolute;
             left: -100%;
             top: 58px;
             z-index: 2;
@@ -59,7 +58,7 @@
         }
 
         .toggleNav{
-            display: block;
+            // display: block;
             left: 0px;
         }
 

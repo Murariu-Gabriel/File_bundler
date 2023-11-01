@@ -1,0 +1,66 @@
+@use "../../SCSS/Abstracts/index.scss" as *;
+
+.dashboard{
+    display: flex;
+    // justify-content: center;
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgb(144, 144, 144);
+    
+    // Makes dashboard fill the empty space
+    flex-grow: 1;
+
+    // // just in case you want the dashboard to take more space
+    // height: 100vh;
+ 
+    
+ 
+    .container{
+        @include container_centering($m_padding);
+        // align-items: unset;
+       
+        .user_not_logged_in{
+
+            margin: 0 auto;
+            
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: $m_spacing;
+
+            border-radius: $base_border_radius;
+            background-color: $container_color;
+            padding: 1rem;
+
+            strong{
+                font-size: 3rem;
+            }
+
+            div{
+                display: flex;
+                gap: 1rem;
+            }
+        }
+
+        .app_functionality{
+            // background-color: $container_color;
+            // border-radius: $base_border_radius; 
+
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+
+            text-align: center;
+
+            .select_message{
+                background-color: $container_color;
+                // border-radius: $base_border_radius; 
+                padding: $s_padding;
+                justify-self: flex-start;
+            }
+
+        }
+    }
+}

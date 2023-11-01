@@ -20,8 +20,16 @@
 // footer nav color
 // accent/button color
 
+
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
-  overflow-x: hidden;
+  // overflow-x: hidden;
+
  
   
   // background-color: #000000;
@@ -129,6 +137,10 @@ input {
 }
 
 // classes needed in general
+
+
+
+
 
 .input_container {
   margin-top: $s_spacing;
