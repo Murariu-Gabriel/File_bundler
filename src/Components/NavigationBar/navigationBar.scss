@@ -44,15 +44,35 @@
                 justify-content: center;
                 gap: $m_spacing;
                 width: 100%;
+
                 
                 li{
                     text-transform: capitalize;
-                
+                    
                 }
-
+                
                 .nav_link{
-                    padding: $s_padding;
-                    border: 1px solid $white;
+                    position: relative;
+                    
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        height: 1px;
+                        background-color: $white;
+                        transition: 0.3s ease-in-out;
+
+                    }
+
+                    &:hover{
+                        
+                       &::after{
+                        width: 100%;
+                       }
+                    }
+
                 }
             }
         }
@@ -70,7 +90,7 @@
 
         .hamburger{
             width: 30px;
-            height: 34px;
+            height: 30px;
             position: relative;
             // margin: 50px auto;
 

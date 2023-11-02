@@ -50,7 +50,7 @@ const NavigationBar = () => {
             <li className="user">user profile</li>
 
             <li className="nav_link">
-              <Link to="/RegistrationAndLogin" className="link">
+              <Link to="/RegistrationAndLogin">
                 log in
               </Link>
             </li>
@@ -58,7 +58,6 @@ const NavigationBar = () => {
               <Link
                 to="/RegistrationAndLogin"
                 state="register"
-                className="link"
               >
                 join us
               </Link>
@@ -68,7 +67,6 @@ const NavigationBar = () => {
               <Link
                 to="/RegistrationAndLogin"
                 state="register"
-                className="link"
               >
                 hall of fame
               </Link>

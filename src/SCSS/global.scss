@@ -92,22 +92,18 @@ button{
 
 a {
   text-decoration: none;
-  color: $black;
 
-  &:hover {
-    color: bisque;
-  }
+ color: $white;
+  
 }
 
 .link{
   
-    // border: 1px solid $white;
-    // padding: $s_padding;
-    color: $white;
+  // could add some padding and use it for the login forgot password
+  color: $black;
 
-     &:hover {
-    color: bisque;
-  }
+     
+  
 }
 
 ul {
@@ -210,6 +206,14 @@ input {
 
 .hide {
   display: none;
+}
+
+.empty_button{
+  border: none;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  text-transform: capitalize;
 }
 
 .button_1{

@@ -1,12 +1,15 @@
-import { deviceDetect, isMobile } from "react-device-detect"
+import DropZone from "./DropZone"
 
 
 
 
 const LoggedUser = () => {
-  console.log(deviceDetect())
- console.log(isMobile)
+  //   console.log(deviceDetect())
+  //  console.log(isMobile)
 
+  const handleForm = (e) => {
+    e.preventDefault()
+  }
 
 
 
@@ -50,25 +53,25 @@ const LoggedUser = () => {
       </ul>
 
       {/* container with drag and rop */}
-      <div>
-        {/* drag or select files */}
 
-        {/* If mobile allow only select files */}
+      <form onSubmit={handleForm}>
+       
+
+        <h3>Upload files</h3>
 
         <div>
-          <span>Drag and drop your files</span>
-          <span>file counter</span>
+          {/* <span>Drag and drop your files</span>
+          <span>file counter</span> */}
 
-          {isMobile 
-          ? <input type="file" /> 
-          // you need to also add drag and drop here check 
-          : <input type="file" />}
+         
+           <DropZone/>
+          
 
           <button className="button_1">upload</button>
         </div>
 
         <p>Only the following extensions are allowed: bsp, mp3, tga</p>
-      </div>
+      </form>
     </div>
   )
 }
