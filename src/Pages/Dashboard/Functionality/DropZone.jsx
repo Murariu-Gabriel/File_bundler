@@ -37,9 +37,21 @@ const DropZone = () => {
 
   }
 
-  // here next thing you have to do is to make a list with rejected files
+  const removeRejected = (fileName) => {
+    setRejected(files => files.filter(({file}) => file.name !== fileName))
+  }
 
-  // to make functionality to reject certain file types
+ // You need to restyle everything 
+
+ // the uls need rethinking
+
+ // maybe all of the li elements should have an x button
+
+ // on phone the style for deletion should be different
+
+ // rejected needs to show reason of rejections
+
+
 
   return (
     <>
@@ -78,16 +90,17 @@ const DropZone = () => {
 
       <ul className="file_preview">
         {rejected.map(({errors, file}) => {
+         
           return (
             <li key={file.name}>
               <div>
                 <p>{file.name}</p>
-                <ul></ul>
+                <p>{errors.code}</p>
               </div>
 
               <button
                 className="empty_button"
-                onClick={() => removeFile(file.name)}
+                onClick={() => removeRejected(file.name)}
               >
                 delete
               </button>

@@ -63,6 +63,7 @@ const LoggedUser = () => {
           {/* <span>Drag and drop your files</span>
           <span>file counter</span> */}
 
+           {/* ypu might need to have around here a generated link from the API */}
          
            <DropZone/>
           
