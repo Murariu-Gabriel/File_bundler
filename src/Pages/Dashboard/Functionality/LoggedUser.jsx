@@ -56,8 +56,8 @@ const LoggedUser = () => {
 
       <form onSubmit={handleForm}>
        
-
         <h3>Upload files</h3>
+
 
         <div>
           {/* <span>Drag and drop your files</span>

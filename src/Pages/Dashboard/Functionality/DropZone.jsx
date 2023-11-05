@@ -51,7 +51,7 @@ const DropZone = () => {
 
  // rejected needs to show reason of rejections
 
-
+ // uls might need a component
 
   return (
     <>
@@ -66,48 +66,55 @@ const DropZone = () => {
         )}
       </div>
 
-      <h3>Accepted files</h3>
-
       {/* break this into components */}
 
-      <ul className="file_preview">
-        {files.map((file) => {
-          return (
-            <li key={file.name}>
-              {file.name}
-              <button
-                className="empty_button"
-                onClick={() => removeFile(file.name)}
-              >
-                delete
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      {files.length !== 0 && (
+        <>
+          <h3 className="file_selection">Accepted files</h3>
 
-      <h3> Rejected files</h3>
+          <ul className="file_preview">
+            {files.map((file) => {
+              return (
+                <li key={file.name}>
+                  {file.name}
+                  <button
+                    className="empty_button"
+                    onClick={() => removeFile(file.name)}
+                  >
+                    delete
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        </>
+      )}
 
-      <ul className="file_preview">
-        {rejected.map(({errors, file}) => {
-         
-          return (
-            <li key={file.name}>
-              <div>
-                <p>{file.name}</p>
-                <p>{errors.code}</p>
-              </div>
+      {rejected.length !== 0 && (
+        <>
+          <h3 className="file_selection"> Rejected files</h3>
 
-              <button
-                className="empty_button"
-                onClick={() => removeRejected(file.name)}
-              >
-                delete
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+          <ul className="file_preview">
+            {rejected.map(({ errors, file }) => {
+              return (
+                <li key={file.name}>
+                  <div>
+                    <p>{file.name}</p>
+                    <p>{errors.code}</p>
+                  </div>
+
+                  <button
+                    className="empty_button"
+                    onClick={() => removeRejected(file.name)}
+                  >
+                    delete
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        </>
+      )}
     </>
   )
 }

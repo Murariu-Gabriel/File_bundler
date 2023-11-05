@@ -58,7 +58,7 @@
                 background-color: $container_color;
                 border-radius: $base_border_radius; 
                 padding: $s_padding;
-             
+                text-align: center;
             }
 
 
@@ -67,7 +67,7 @@
                 display: flex;
                 justify-content: center;
               
-                gap: $m_spacing;
+                gap: $s_spacing;
             }
 
             form{
@@ -86,13 +86,17 @@
 
                 }
 
-                .file_preview{
+                .file_selection{
                     margin-top: $m_margin;
-                    flex-wrap: wrap;
+                }
 
+                .file_preview{
+                    margin: $l_margin 0;
+                    flex-wrap: wrap;
+                    // justify-content: flex-start;
                     li{
                         padding: $s_padding;
-                        border-radius: $base-border-radius;
+                        // border-radius: $base-border-radius;
                         background-color: rgb(147, 208, 219);
                         
                         position: relative;
@@ -120,6 +124,7 @@
                     }
                 }
             }
+
         }
     }
 }
