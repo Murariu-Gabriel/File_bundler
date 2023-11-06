@@ -53,6 +53,8 @@ const DropZone = () => {
 
  // uls might need a component
 
+ // make delete for all files on both sides
+
   return (
     <>
       <div {...getRootProps({ className: "desktop_drop_upload" })}>
@@ -70,7 +72,7 @@ const DropZone = () => {
 
       {files.length !== 0 && (
         <>
-          <h3 className="file_selection">Accepted files</h3>
+          <h3 className="file_selection">Accepted files ({files.length})</h3>
 
           <ul className="file_preview">
             {files.map((file) => {
@@ -81,7 +83,7 @@ const DropZone = () => {
                     className="empty_button"
                     onClick={() => removeFile(file.name)}
                   >
-                    delete
+                    X
                   </button>
                 </li>
               )
@@ -92,7 +94,7 @@ const DropZone = () => {
 
       {rejected.length !== 0 && (
         <>
-          <h3 className="file_selection"> Rejected files</h3>
+          <h3 className="file_selection"> Rejected files ({rejected.length})</h3>
 
           <ul className="file_preview">
             {rejected.map(({ errors, file }) => {
@@ -107,7 +109,7 @@ const DropZone = () => {
                     className="empty_button"
                     onClick={() => removeRejected(file.name)}
                   >
-                    delete
+                    x
                   </button>
                 </li>
               )

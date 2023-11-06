@@ -18,17 +18,15 @@ const LoggedUser = () => {
 
 
   return (
-    // also must display error if the user has uploaded files that are not permitted
+   
 
     // Actual APP
-
-    // on top under navigation a message bar with a message : Pick a game server you want to upload filers for
 
     // under you will have multiple icons with 4 games the icon shapes should be inspired after the games
 
     // each icon when clicked will need to change a container that will have a different link at the bottom
 
-    // there will have to be a drag and drop functionality, meaning the user should be able to drag and drop in a box their files
+   
 
     // After the user gras some files the files will need a counter
 
