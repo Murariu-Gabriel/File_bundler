@@ -43,11 +43,11 @@ const LoggedUser = () => {
       </p>
 
       {/* container containing the 4 games with icons and shapes */}
-      <ul>
+      <ul className="game_list">
         <li>Game 1</li>
         <li>Game 2</li>
         <li>Game 3</li>
-        <li>Game 4</li>
+  
       </ul>
 
       {/* container with drag and rop */}

@@ -55,6 +55,8 @@ const DropZone = () => {
 
  // make delete for all files on both sides
 
+ // you might need to make the drag and drop full screen and play an animation when it senses folders 
+
   return (
     <>
       <div {...getRootProps({ className: "desktop_drop_upload" })}>
