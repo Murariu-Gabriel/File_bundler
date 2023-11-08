@@ -3,12 +3,16 @@ import DropZone from "./DropZone"
 
 
 
+
+
 const LoggedUser = () => {
   //   console.log(deviceDetect())
   //  console.log(isMobile)
 
   const handleForm = (e) => {
     e.preventDefault()
+
+    console.log("SUBMIT")
   }
 
 
@@ -18,15 +22,11 @@ const LoggedUser = () => {
 
 
   return (
-   
-
     // Actual APP
 
     // under you will have multiple icons with 4 games the icon shapes should be inspired after the games
 
     // each icon when clicked will need to change a container that will have a different link at the bottom
-
-   
 
     // After the user gras some files the files will need a counter
 
@@ -44,32 +44,35 @@ const LoggedUser = () => {
 
       {/* container containing the 4 games with icons and shapes */}
       <ul className="game_list">
-        <li>Game 1</li>
-        <li>Game 2</li>
-        <li>Game 3</li>
-  
+        <li>
+          <img src="../../../../public/assets/CS16.png" alt="CS 1.6" />
+        </li>
+        <li>
+          <img src="../../../../public/assets/CS2.webp" alt="CS 2" />
+        </li>
+        <li>
+          <img src="../../../../public/assets/TF2.jpg" alt="TF2" />
+        </li>
       </ul>
 
       {/* container with drag and rop */}
 
       <form onSubmit={handleForm}>
-       
         <h3>Upload files</h3>
-
 
         <div>
           {/* <span>Drag and drop your files</span>
           <span>file counter</span> */}
 
-           {/* ypu might need to have around here a generated link from the API */}
-         
-           <DropZone/>
-          
+          {/* ypu might need to have around here a generated link from the API */}
 
-          <button className="button_1">upload</button>
+          <DropZone />
         </div>
 
-        <p>Only the following extensions are allowed: bsp, mp3, tga</p>
+        <p>
+          Only the following extensions are allowed: .bsp, .vpk, .tga, mp3 and
+          .wav
+        </p>
       </form>
     </div>
   )

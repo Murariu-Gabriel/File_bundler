@@ -27,8 +27,13 @@ const DropZone = () => {
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: {
-    // here you will have to enter all accepted files for now we will only accept txt
-    "text/*": []
+
+    "text/*": [],
+    "bsp/*": [],
+    "vpk/*": [],
+    "audio/*": [".mp3", ".wav"],
+    "mdl/*": [],
+    "tga/*": [],
 
   } })
 
@@ -59,7 +64,11 @@ const DropZone = () => {
 
   return (
     <>
-      <div {...getRootProps({ className: "desktop_drop_upload" })}>
+      <div
+        {...getRootProps({
+          className: `desktop_drop_upload ${isDragActive ? "active_drag" : ""}`,
+        })}
+      >
         <input {...getInputProps()} />
         {isDragActive ? (
           <p>Drop the files here ...</p>
@@ -96,7 +105,10 @@ const DropZone = () => {
 
       {rejected.length !== 0 && (
         <>
-          <h3 className="file_selection"> Rejected files ({rejected.length})</h3>
+          <h3 className="file_selection">
+            {" "}
+            Rejected files ({rejected.length})
+          </h3>
 
           <ul className="file_preview">
             {rejected.map(({ errors, file }) => {
@@ -118,6 +130,10 @@ const DropZone = () => {
             })}
           </ul>
         </>
+      )}
+
+      {files.length !== 0 && (
+        <button className="button_1">upload</button>
       )}
     </>
   )
