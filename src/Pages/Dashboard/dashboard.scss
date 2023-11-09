@@ -88,18 +88,19 @@
             }
 
 
-            // imgs need to be modified
+            // imgs need to be sized better
             .game_list{
                 gap: $l_spacing;
 
                 li{
                     img{
                         width: 100px;
+                        border-radius: 8px;
                     }
 
                     &:first-of-type{
                         img{
-                            width: 110px;
+                            // width: 110px;
 
                         }
                     }

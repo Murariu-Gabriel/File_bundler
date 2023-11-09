@@ -45,13 +45,13 @@ const LoggedUser = () => {
       {/* container containing the 4 games with icons and shapes */}
       <ul className="game_list">
         <li>
-          <img src="../../../../public/assets/CS16.png" alt="CS 1.6" />
+          <img src="../../../../public/assets/CS16_copy.png" alt="CS 1.6" />
         </li>
         <li>
           <img src="../../../../public/assets/CS2.webp" alt="CS 2" />
         </li>
         <li>
-          <img src="../../../../public/assets/TF2.jpg" alt="TF2" />
+          <img src="../../../../public/assets/roundTF2Logo.png" alt="TF2" />
         </li>
       </ul>
 
