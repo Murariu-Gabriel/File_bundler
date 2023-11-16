@@ -93,16 +93,17 @@
                 gap: $l_spacing;
 
                 li{
+                    cursor: pointer;
+                    transition: scale 0.2s ease-in-out;
+
+
                     img{
-                        width: 100px;
+                        width: 50px;
                         border-radius: 8px;
                     }
 
-                    &:first-of-type{
-                        img{
-                            // width: 110px;
-
-                        }
+                    &:hover{
+                        scale: 1.1;
                     }
                 }
             }
@@ -126,10 +127,6 @@
 
                 }
 
-                .active_drag{
-                    // add animation for active drag
-                }
-
 
                 .file_selection{
                     margin-top: $m_margin;
@@ -143,8 +140,8 @@
                     li{
                         display: flex;
                         padding: $s_padding;
-                        border-radius: $base-border-radius;
-                        background-color: rgb(147, 208, 219);
+                        border-radius: 5px;
+                        background-color: rgb(165, 165, 165);
                         gap: $s_spacing;
                         
                         position: relative;
@@ -152,23 +149,17 @@
                         transition: width 0.3 s ease-in-out;
 
                         button{
-                            // visibility: hidden;
-                            pointer-events: none;
-                            background-color: rgb(223, 117, 117);
+                            cursor: pointer;
                             border-radius: 50%;
                             width: 17px;
                             height: 17px;
                             
-                            transition: background-color 0.2s ease-in ;
+                            transition: color 0.2s ease-in ;
                         }
                         
                         &:hover{
                             button{
-                                pointer-events: initial;
-                                visibility: initial;
-                                background-color: $error_red;
-                                color: $white;
-                                
+                                color: $error_red;
                             }
                         }
                     }
@@ -178,6 +169,27 @@
                     width: 50%;
                 }
 
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 550px) {
+
+    .dashboard{
+        .container{
+            .app_functionality{
+                .game_list{
+                    gap: $l_spacing;
+
+                    li{
+                        img{
+                            width: 80px;
+                            
+                        }
+                    }
+                }
             }
         }
     }
