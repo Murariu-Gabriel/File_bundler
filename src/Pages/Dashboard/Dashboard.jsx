@@ -1,23 +1,13 @@
+import { useState } from "react"
 import LoggedUser from "./Functionality/LoggedUser"
 import UserNotLoggedIn from "./UserNotLoggedIn"
 
 import "./dashboard.scss"
 
 const Dashboard = () => {
+  const [currentBackground, setCurrentBackground] = useState("")
+  
   return (
-    // Dashboard will need two container components
-
-    // one will contain error and will ask user to log in
-
-    // and one will contain the functionality of the website
-
-    // ERROR container
-
-    // - contains an Icon error or image
-
-    // error message
-
-    // a button for login or register
 
   
 
@@ -29,8 +19,19 @@ const Dashboard = () => {
 
     // after upload button is clicked with some back and forth with the API there should be a sort of log that shows the files loading as a loading screen
 
+    // FOR BACKGROUND
+
+    /*
+     - download and cut some videos that will be set as background
+
+    */
+
+     
+
     <section className="dashboard">
-      <div className="container">
+      <div className="container"
+      //  style={{background: "#f2f2"}}
+       >
         {/* if user not logged in */}
 
         {/* <UserNotLoggedIn /> */}

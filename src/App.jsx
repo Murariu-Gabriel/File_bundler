@@ -33,6 +33,10 @@ const App = () => {
   //- Container needs global class probably because it is used in footer and nav already with the same styles but doesn't have the same in registration
 
 
+  // NAV 
+
+  // it doesn t go to the bottom, it should
+
   return (
     <>
       {/* NAV */}

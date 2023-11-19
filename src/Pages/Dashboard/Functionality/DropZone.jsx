@@ -84,9 +84,9 @@ const DropZone = () => {
       {files.length !== 0 && (
         <>
 
-          <div className="">
-            <h3 className="file_selection">Accepted files ({files.length})</h3>
-            <button>remove files</button>
+          <div className="file_management_container">
+            <h3>Accepted files ({files.length})</h3>
+            <button className="button_1" onClick={() => setFiles([])} >remove files</button>
           </div>
 
           <ul className="file_preview">
@@ -120,10 +120,14 @@ const DropZone = () => {
 
       {rejected.length !== 0 && (
         <>
-          <h3 className="file_selection">
+
+        <div className="file_management_container">
+          <h3>
             {" "}
             Rejected files ({rejected.length})
           </h3>
+          <button className="button_1" onClick={() => setRejected([])}>Remove rejected files</button>
+        </div>
 
           <ul className="file_preview">
             {rejected.map(({ errors, file }) => {

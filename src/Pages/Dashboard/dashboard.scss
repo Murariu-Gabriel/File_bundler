@@ -78,8 +78,6 @@
                
             }
 
-
-            // Make the game icons small for phone and make them bigger for desktop
             ul{
                 display: flex;
                 justify-content: center;
@@ -88,14 +86,19 @@
             }
 
 
-            // imgs need to be sized better
+            
             .game_list{
                 gap: $l_spacing;
+                
 
                 li{
                     cursor: pointer;
                     transition: scale 0.2s ease-in-out;
-
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: $m_spacing;
+                    width: 100%;
 
                     img{
                         width: 50px;
@@ -123,14 +126,24 @@
                 .desktop_drop_upload{
                     border: 1px solid gray;
                     border-radius: 4px;
-                    padding: $l_padding;
+                    padding: $xl_padding;
 
                 }
 
 
-                .file_selection{
+                .file_management_container{
                     margin-top: $m_margin;
+
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                   .button_1{
+                    width: initial;
+                   }
+
                 }
+
 
                 .file_preview{
                     margin: $l_margin 0;
