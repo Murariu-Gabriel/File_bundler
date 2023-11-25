@@ -6,7 +6,7 @@ import { isMobile } from "react-device-detect"
 const DropZone = () => {
  const [files, setFiles] = useState([])
  const [rejected, setRejected] = useState([])
- console.log(rejected)
+//  console.log(rejected)
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
 
@@ -58,9 +58,7 @@ const DropZone = () => {
 
  // uls might need a component
 
- // make delete for all files on both sides
-
- // you might need to make the drag and drop full screen and play an animation when it senses folders 
+ // You need to make it refuse folders
 
   return (
     <>
@@ -72,10 +70,13 @@ const DropZone = () => {
         <input {...getInputProps()} />
         {isDragActive ? (
           <p>Drop the files here ...</p>
+
         ) : isMobile ? (
           <p>Click to select files</p>
+
         ) : (
           <p>Drag 'n' drop some files here, or click to select files</p>
+
         )}
       </div>
 

@@ -6,11 +6,14 @@ import "./dashboard.scss"
 
 const Dashboard = () => {
   const [currentBackground, setCurrentBackground] = useState("")
-  
+
+
+
+  const updateBackground = (background) => {
+    setCurrentBackground(background)
+  }
+
   return (
-
-  
-
     // QUESTION : how do I make the app recognize the login of the user?
 
     // is there any other way than just making a local storage variable that can be altered?
@@ -26,19 +29,20 @@ const Dashboard = () => {
 
     */
 
-     
-
     <section className="dashboard">
-      <div className="container"
-      //  style={{background: "#f2f2"}}
-       >
+      <div
+        className="container"
+        // this should be background image with url not color
+        style={{ background: currentBackground }}
+      >
+        {/* After you figure out the login method you will have to conditionally render these two components */}
+
         {/* if user not logged in */}
 
         {/* <UserNotLoggedIn /> */}
 
-
         {/* if user logged in */}
-        <LoggedUser />
+        <LoggedUser updateBackground={updateBackground} />
 
         {/*
 
