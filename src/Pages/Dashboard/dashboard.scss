@@ -7,19 +7,28 @@
     // max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    background-color: rgb(144, 144, 144);
+    // background-color: rgb(144, 144, 144);
     
     // Makes dashboard fill the empty space
     flex-grow: 1;
 
     // // just in case you want the dashboard to take more space
     // height: 100vh;
- 
+    
+    
     
  
     .container{
         // @include container_centering($m_padding);
         // align-items: unset;
+
+        video{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -2;
+    }
 
         display: flex;
         align-items: center;

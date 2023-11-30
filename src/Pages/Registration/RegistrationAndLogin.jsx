@@ -9,12 +9,14 @@ import "./registration.scss"
 import TransitionContainer from "./TransitionContainer"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
+import ForgotPassword from "./ForgotPassword/ForgotPassword"
 
 
 const RegistrationAndLogin = () => {
   const [loginOrSignUp, setLoginOrSignUp] = useState(true)
   const [animationToggle, setAnimationToggle] = useState(true)
   const [registrationSuccess, setRegistrationSuccess] = useState(false)
+  const [forgotPasswordToggle, setForgotPasswordToggle] = useState(false)
 
   const location = useLocation()
 
@@ -27,6 +29,14 @@ const RegistrationAndLogin = () => {
 
   }
 
+  const toggleForgotPasswordAndLoginRegisterForms = () => {
+    setAnimationToggle(!animationToggle)
+
+    setTimeout(() => {
+      toggleForgotPassword() 
+    }, 500)
+  }
+
   const closeSuccessTransition = () => {
     setAnimationToggle(!animationToggle)
     setLoginOrSignUp(!loginOrSignUp)
@@ -37,12 +47,17 @@ const RegistrationAndLogin = () => {
     setRegistrationSuccess(!registrationSuccess)
   }
 
+  const toggleForgotPassword = () => {
+    setForgotPasswordToggle(!forgotPasswordToggle)
+  }
+
 
   useEffect(() => {
     if (location.state === "register") {
       toggleSetLoginOrSignUp()
     }
   }, [location.state])
+
   //          PLAN
 
   //    Login
@@ -54,10 +69,17 @@ const RegistrationAndLogin = () => {
 
       // Might still need some polish but after the colors are set
 
+  //    Forgot password
+
+      // you will need to make the container for transition somehow take custom messages so you can use it multiple places
+
 
   return (
     <section className="registration">
-      <div className={`container ${loginOrSignUp ? "" : "transition_height"}`}>
+      <div
+        className={`container ${loginOrSignUp ? "" : "transition_height"} 
+      ${forgotPasswordToggle ? "transition_height_2" : ""}`}
+      >
         {/* <div
           className={`transition_div ${animationToggle ? `` : "active"} 
             ${registrationSuccess ? "sign_up_success" : ""}
@@ -89,10 +111,25 @@ const RegistrationAndLogin = () => {
           </div>
         </div> */}
 
-        <TransitionContainer {...{ animationToggle, registrationSuccess, closeSuccessTransition }}/>
+        <TransitionContainer
+          {...{ animationToggle, registrationSuccess, closeSuccessTransition }}
+        />
 
-        {loginOrSignUp ? (
-          <Login switchForm={toggleSetLoginOrSignUp} />
+        {forgotPasswordToggle ? (
+          <ForgotPassword
+            toggleForgotPassword={toggleForgotPassword}
+            toggleForgotPasswordAndLoginRegisterForms={
+              toggleForgotPasswordAndLoginRegisterForms
+            }
+          />
+        ) : loginOrSignUp ? (
+          <Login
+            switchForm={toggleSetLoginOrSignUp}
+            toggleForgotPassword={toggleForgotPassword}
+            toggleForgotPasswordAndLoginRegisterForms={
+              toggleForgotPasswordAndLoginRegisterForms
+            }
+          />
         ) : (
           <SignUp
             switchForm={toggleSetLoginOrSignUp}

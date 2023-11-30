@@ -1,25 +1,37 @@
+import { useState } from "react"
 import { Link, Route, Routes, useLocation } from "react-router-dom"
 import Footer from "./Components/Footer/Footer"
 import Navigation from "./Components/NavigationBar/NavigationBar"
 import {Dashboard, HallOfFame, RegistrationAndLogin, NotFound, ChangeLog} from "./Pages"
+import ForgotPassword from "./Pages/Registration/ForgotPassword/ForgotPassword"
 
 import "./SCSS/global.scss"
 
 
 const App = () => {
+  // here we control multiple functionality that goes into dashboard and nav
+  const [isUserLogged, setIsUserLogged] = useState(true)
+
   const location = useLocation()
-  const isLocationRegistration = location.pathname === "/RegistrationAndLogin"
+  const isLocationRegistration =
+    location.pathname === "/RegistrationAndLogin" ||
+    location.pathname === "/forgotPassword"
 
 
 
 
-  // The App should be responsive to all devices
+  /*
+  
+  * Things to work at in general
 
-  // remember that you want the footer andd nav to show when all pages are accessed
+    1. Forgot password still needs work
 
+    2. User bubble needs dropdown menu
 
+    3. styling has be finished
+  
+  */
 
-  // you need to document yourself of how to write your css when yu work in react because last react project has a lot of css code that was overwritten multiple times without use
 
 
   // you need to decide an background color
@@ -27,6 +39,8 @@ const App = () => {
   // a text color
 
   // and an accent color
+
+
 
   //STYLES
 
@@ -40,23 +54,23 @@ const App = () => {
   return (
     <>
       {/* NAV */}
-      {!isLocationRegistration && <Navigation />}
+      {!isLocationRegistration && <Navigation isUserLogged={isUserLogged} />}
 
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard isUserLogged={isUserLogged} />} />
         <Route path="/FameHall" element={<HallOfFame />} />
         <Route
           path="/RegistrationAndLogin"
           element={<RegistrationAndLogin />}
         />
-        <Route path="/changeLog" element={<ChangeLog/>}/>
+        <Route path="/changeLog" element={<ChangeLog />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      
+
       {/* FOOTER */}
       {!isLocationRegistration && <Footer />}
     </>
-
   )
 }
 

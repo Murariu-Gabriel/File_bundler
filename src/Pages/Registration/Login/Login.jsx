@@ -1,28 +1,31 @@
 import {useForm} from "react-hook-form"
-import {useNavigate } from "react-router-dom"
+import {Link, useNavigate } from "react-router-dom"
 
 import Input from "../../../Components/Inputs/Input"
 import PasswordInput from "../../../Components/Inputs/PasswordInput"
 
 // import loginStyle from "./login.module.scss"
 
-const Login = ({ switchForm}) => {
-
-
+const Login = ({ switchForm, toggleForgotPasswordAndLoginRegisterForms }) => {
   const form = useForm({
-    defaultValues :{
+    defaultValues: {
       userName: "",
-      password: ""
-    }
+      password: "",
+    },
   })
 
-   const navigate = useNavigate()
-  
-  const { register,setError, control, handleSubmit, formState, reset, clearErrors } =form
+  const navigate = useNavigate()
+
+  const {
+    register,
+    setError,
+    control,
+    handleSubmit,
+    formState,
+    reset,
+    clearErrors,
+  } = form
   const { errors, isDirty, isValid } = formState
-
-
-
 
   const handleForm = (data) => {
     // when login is clicked send formData to API
@@ -31,15 +34,9 @@ const Login = ({ switchForm}) => {
     // if there are no errors send object to api
 
     // based on what the api will send back you will have to display error
-   
+
     // if api response is 200 or and ok send user to dashboard
-    navigate("/", {replace: true})   
-
-
-
-
-
-
+    navigate("/", { replace: true })
 
     // console.log(data)
 
@@ -47,7 +44,7 @@ const Login = ({ switchForm}) => {
 
     // ATTENTION: this will work only if the other validation doesn't give error
     // console.log(data.userName)
-    // if (data.userName === "a") {
+    // if (data.userName === "(username received from backend)") {
     //   setError("userName", {
     //     type: "manual",
     //     message: "idk error",
@@ -112,17 +109,19 @@ const Login = ({ switchForm}) => {
         }}
       />
 
-      <button className="button_2">Forgot password?</button>
+      <button
+        type="button"
+        onClick={toggleForgotPasswordAndLoginRegisterForms}
+        className="button_2"
+      >
+        Forgot password?
+      </button>
 
       <button className="button_1">Login</button>
 
       <div className="got_to_sign_up">
         <span>Or Sign Up using </span>
-        <button
-          className="button_1"
-          type="button"
-          onClick={switchForm}
-        >
+        <button className="button_1" type="button" onClick={switchForm}>
           {" "}
           sign up
         </button>

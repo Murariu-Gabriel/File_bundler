@@ -1,5 +1,7 @@
 import DropZone from "./DropZone"
 
+import tf2 from "../../../../public/assets/MeetTheSpy.mp4"
+
 const LoggedUser = ({ updateBackground }) => {
   //   console.log(deviceDetect())
   //  console.log(isMobile)
@@ -31,7 +33,7 @@ const LoggedUser = ({ updateBackground }) => {
           <img src="../../../../public/assets/CS2.webp" alt="CS 2" />
           <span>Counter Strike 2</span>
         </li>
-        <li onClick={() => updateBackground("purple")}>
+        <li onClick={() => updateBackground("MeetTheSpy.mp4")}>
           <img src="../../../../public/assets/roundTF2Logo.png" alt="TF2" />
           <span>Team Fortress 2</span>
         </li>

@@ -2,13 +2,14 @@ import { useState } from "react"
 import LoggedUser from "./Functionality/LoggedUser"
 import UserNotLoggedIn from "./UserNotLoggedIn"
 
+
+
 import "./dashboard.scss"
 
-const Dashboard = () => {
+const Dashboard = ({ isUserLogged }) => {
   const [currentBackground, setCurrentBackground] = useState("")
 
-
-
+  console.log(currentBackground)
   const updateBackground = (background) => {
     setCurrentBackground(background)
   }
@@ -27,22 +28,26 @@ const Dashboard = () => {
     /*
      - download and cut some videos that will be set as background
 
+     - for cs go and for cs.
+
     */
 
-    <section className="dashboard">
+    <section
+      className="dashboard"
+      style={{ backgroundImage: currentBackground }}
+    >
       <div
         className="container"
         // this should be background image with url not color
-        style={{ background: currentBackground }}
       >
-        {/* After you figure out the login method you will have to conditionally render these two components */}
+        <video src={`/public/assets/${currentBackground}`} autoPlay muted loop id="myVideo">
+        </video>
 
-        {/* if user not logged in */}
-
-        {/* <UserNotLoggedIn /> */}
-
-        {/* if user logged in */}
-        <LoggedUser updateBackground={updateBackground} />
+        {isUserLogged ? (
+          <LoggedUser updateBackground={updateBackground} />
+        ) : (
+          <UserNotLoggedIn />
+        )}
 
         {/*
 
