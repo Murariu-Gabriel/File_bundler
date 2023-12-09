@@ -49,7 +49,11 @@ const App = () => {
 
   // NAV 
 
-  // it doesn t go to the bottom, it should
+  // it doesn t go to the bottom, it should (on phone)
+
+  // might not be a problem needs to be tested on launch ()
+
+  // nav needs a popup layer that closes the menu when clicked out of it
 
   return (
     <>

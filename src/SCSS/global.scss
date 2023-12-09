@@ -102,8 +102,6 @@ a {
   // could add some padding and use it for the login forgot password
   color: $black;
 
-     
-  
 }
 
 ul {
@@ -135,7 +133,9 @@ input {
 // classes needed in general
 
 
-
+.stop_scrolling{
+  overflow: hidden;
+}
 
 
 .input_container {
