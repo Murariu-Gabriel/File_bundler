@@ -8,33 +8,57 @@ const Nav = ({ toggleHamburger, isUserLogged, handleNavToggle, hamburgerRef }) =
   const navRef = useRef(null)
 
 
-  // Might need to take in account when the screen gets bigger and cancel this function by just closing everything, long story short like clicking outside of the nav which closes the nav
 
-  const handleOutsideClickToggle = (isToggled, ref) => {
+  const handleNavFunctionalityToggle = (isToggled, ref) => {
+      
     setTimeout(() => {
-      const handleOutsideClick = (event) => {
-        if (isToggled && !hamburgerRef.current.contains(event.target) && !ref.current.contains(event.target)) {
-          document.removeEventListener("click", handleOutsideClick)
-          
-          handleNavToggle()
+
+        // take are when x for nav is pressed this functionality is still alive until click    
+    
+        const handleOutsideClick = (event) => {
+            if (isToggled && !hamburgerRef.current.contains(event.target) && !ref.current.contains(event.target)) {
+                
+            document.removeEventListener("click", handleOutsideClick)
+            window.removeEventListener("resize", handleViewportChanges)
+            handleNavToggle()
+            
+            }
         }
-      }
 
-      if (isToggled) {
-        document.addEventListener("click", handleOutsideClick)
-      } else {
-        document.removeEventListener("click", handleOutsideClick)
-      }
+        const handleViewportChanges = (event) => {
+            const viewportWidth = window.innerWidth
+            
+            if(viewportWidth >= 550) {
+                document.removeEventListener("click", handleOutsideClick)
+                window.removeEventListener("resize", handleViewportChanges)
 
-      return () => {
-        document.removeEventListener("click", handleOutsideClick)
-      }
-    }, 1000)
+                handleNavToggle()
+            }
+            console.log(viewportWidth)
+            
+
+        }
+
+
+        if (isToggled) {
+            document.addEventListener("click", handleOutsideClick)
+            window.addEventListener("resize", handleViewportChanges)
+        } else {
+            document.removeEventListener("click", handleOutsideClick)
+            window.removeEventListener("resize", handleViewportChanges)
+
+        }
+
+        return () => {
+             document.removeEventListener("click", handleOutsideClick)
+             window.removeEventListener("resize", handleViewportChanges)
+        }
+    }, 500)
   }
 
   useEffect(() => {
     if (toggleHamburger) {
-      handleOutsideClickToggle(toggleHamburger, navRef)
+      handleNavFunctionalityToggle(toggleHamburger, navRef)
 
     }
   }, [toggleHamburger])
