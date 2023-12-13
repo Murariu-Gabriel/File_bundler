@@ -7,14 +7,9 @@ const Nav = ({ toggleHamburger, isUserLogged, handleNavToggle, hamburgerRef }) =
   // this ref is used so I can detect when the click is not on the nav
   const navRef = useRef(null)
 
+ console.log(toggleHamburger)
 
-
-  const handleNavFunctionalityToggle = (isToggled, ref) => {
-      
-    setTimeout(() => {
-
-        // take are when x for nav is pressed this functionality is still alive until click    
-    
+    const handleNavFunctionalityToggle = (isToggled, ref) => {          
         const handleOutsideClick = (event) => {
             if (isToggled && !hamburgerRef.current.contains(event.target) && !ref.current.contains(event.target)) {
                 
@@ -23,9 +18,16 @@ const Nav = ({ toggleHamburger, isUserLogged, handleNavToggle, hamburgerRef }) =
             handleNavToggle()
             
             }
+
+            // this helps to remove the functionality when clicking the hamburger button 
+            if(hamburgerRef.current){
+                document.removeEventListener("click", handleOutsideClick)
+                window.removeEventListener("resize", handleViewportChanges)
+            }
+
         }
 
-        const handleViewportChanges = (event) => {
+        const handleViewportChanges = () => {
             const viewportWidth = window.innerWidth
             
             if(viewportWidth >= 550) {
@@ -39,22 +41,22 @@ const Nav = ({ toggleHamburger, isUserLogged, handleNavToggle, hamburgerRef }) =
 
         }
 
+        // this timeout somehow makes the functionality work, without it it is not called
+        setTimeout(() => {
+            if (isToggled) {
+                document.addEventListener("click", handleOutsideClick)
+                window.addEventListener("resize", handleViewportChanges)
+            } else {
+                document.removeEventListener("click", handleOutsideClick)
+                window.removeEventListener("resize", handleViewportChanges)
+            }
 
-        if (isToggled) {
-            document.addEventListener("click", handleOutsideClick)
-            window.addEventListener("resize", handleViewportChanges)
-        } else {
-            document.removeEventListener("click", handleOutsideClick)
-            window.removeEventListener("resize", handleViewportChanges)
-
-        }
-
-        return () => {
-             document.removeEventListener("click", handleOutsideClick)
-             window.removeEventListener("resize", handleViewportChanges)
-        }
-    }, 500)
-  }
+            return () => {
+                document.removeEventListener("click", handleOutsideClick)
+                window.removeEventListener("resize", handleViewportChanges)
+            }
+        }, 500)
+    }
 
   useEffect(() => {
     if (toggleHamburger) {

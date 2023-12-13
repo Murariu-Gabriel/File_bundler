@@ -2,9 +2,6 @@ import { useEffect, useState, useRef } from "react"
 
 import Nav from "./Nav"
 
-import LoggedInNav from "./LoggedInNav"
-import NotLoggedInNav from "./NotLoggedInNav"
-
 import "./navigationBar.scss"
 
 
