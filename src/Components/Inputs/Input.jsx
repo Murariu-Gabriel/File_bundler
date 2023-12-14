@@ -8,7 +8,7 @@ const Input = ({type, htmlFor, label, placeholder, icon, register, errors, valid
   return (
     <div
       className={`input_container ${
-        errors[htmlFor]?.message && "input_container_error"
+        errors[htmlFor]?.message ? "input_container_error" : ""
       }`}
     >
       {icon ? icon : ""}

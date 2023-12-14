@@ -5,12 +5,13 @@ import SignUp from "./SignUp/SignUp"
 
 // import loginStyle from "./registration.module.scss"
 
-import "./registration.scss"
-import TransitionContainer from "./TransitionContainer"
-import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+
+import TransitionContainer from "./TransitionContainer"
 import ForgotPassword from "./ForgotPassword/ForgotPassword"
 
+import "./registration.scss"
 
 const RegistrationAndLogin = () => {
   const [loginOrSignUp, setLoginOrSignUp] = useState(true)
@@ -19,6 +20,13 @@ const RegistrationAndLogin = () => {
   const [forgotPasswordToggle, setForgotPasswordToggle] = useState(false)
 
   const location = useLocation()
+
+
+  // for all the animation function a slight note
+
+  // the timeout's purpose it o hide the change in state
+
+  // 
 
   const toggleSetLoginOrSignUp = () => {
     setAnimationToggle(!animationToggle)
@@ -33,7 +41,7 @@ const RegistrationAndLogin = () => {
     setAnimationToggle(!animationToggle)
 
     setTimeout(() => {
-      toggleForgotPassword() 
+       setForgotPasswordToggle(!forgotPasswordToggle)
     }, 500)
   }
 
@@ -47,10 +55,8 @@ const RegistrationAndLogin = () => {
     setRegistrationSuccess(!registrationSuccess)
   }
 
-  const toggleForgotPassword = () => {
-    setForgotPasswordToggle(!forgotPasswordToggle)
-  }
 
+ 
 
   useEffect(() => {
     if (location.state === "register") {
@@ -75,7 +81,7 @@ const RegistrationAndLogin = () => {
 
 
   return (
-    <section className="registration">
+    <section className="registration" >
       <div
         className={`container ${loginOrSignUp ? "" : "transition_height"} 
       ${forgotPasswordToggle ? "transition_height_2" : ""}`}
@@ -111,13 +117,15 @@ const RegistrationAndLogin = () => {
           </div>
         </div> */}
 
+        {/* The idea here is that I should make this component somehow have multiple faces or dynamic faces or dynamic text so I can use it also for email recovery */}
+
         <TransitionContainer
           {...{ animationToggle, registrationSuccess, closeSuccessTransition }}
         />
 
+        {/* 1 ternary and in false there is the second ternary */}
         {forgotPasswordToggle ? (
           <ForgotPassword
-            toggleForgotPassword={toggleForgotPassword}
             toggleForgotPasswordAndLoginRegisterForms={
               toggleForgotPasswordAndLoginRegisterForms
             }
@@ -125,7 +133,6 @@ const RegistrationAndLogin = () => {
         ) : loginOrSignUp ? (
           <Login
             switchForm={toggleSetLoginOrSignUp}
-            toggleForgotPassword={toggleForgotPassword}
             toggleForgotPasswordAndLoginRegisterForms={
               toggleForgotPasswordAndLoginRegisterForms
             }

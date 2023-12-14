@@ -19,7 +19,7 @@ const PasswordInput = ({
   return (
     <div
       className={`input_container ${
-        errors[htmlFor]?.message && "input_container_error"
+        errors[htmlFor]?.message ? "input_container_error" : ""
       }`}
     >
       {icon ? icon : ""}
@@ -29,7 +29,7 @@ const PasswordInput = ({
 
       {passwordRules && (
         <button
-          className="button_3"
+          className="button_2"
           onMouseEnter={() => setShowMessage(true)}
           onMouseLeave={() => setShowMessage(false)}
         >

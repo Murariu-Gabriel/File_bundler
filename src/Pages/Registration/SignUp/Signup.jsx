@@ -22,6 +22,8 @@ const SignUp = ({ switchForm, toggleRegistrationSuccess }) => {
   } = form
   const { errors, isDirty, isValid } = formState
 
+  // console.log(errors)
+
   const handleForm = (data) => {
     //  e.preventDefault()
 
