@@ -45,14 +45,22 @@ const RegistrationAndLogin = () => {
     }, 500)
   }
 
-  const closeSuccessTransition = () => {
+  const closeRegistrationSuccessTransition = () => {
     setAnimationToggle(!animationToggle)
     setLoginOrSignUp(!loginOrSignUp)
     toggleRegistrationSuccess()
   }
 
+  
+
   const toggleRegistrationSuccess = () => {
     setRegistrationSuccess(!registrationSuccess)
+  }
+
+  // take care for some reason the toggle doesn't work here you might want ot find out
+  const closeLoadingTransition = () => {
+    setAnimationToggle(!animationToggle)
+    setIsLoading(false)
   }
 
   const toggleLoading = () => {
@@ -113,7 +121,7 @@ const RegistrationAndLogin = () => {
             <button
               className="button_1"
               onClick={() => {
-               closeSuccessTransition()
+               closeRegistrationSuccessTransition()
               }}
             >
               Go to Login
@@ -124,16 +132,24 @@ const RegistrationAndLogin = () => {
         {/* The idea here is that I should make this component somehow have multiple faces or dynamic faces or dynamic text so I can use it also for email recovery */}
 
         <TransitionContainer
-          {...{ animationToggle, registrationSuccess, closeSuccessTransition, isLoading }}
+          {...{
+            animationToggle,
+            registrationSuccess,
+            closeRegistrationSuccessTransition,
+            isLoading,
+          }}
         />
 
         {/* 1 ternary and in false there is the second ternary */}
         {forgotPasswordToggle ? (
           <ForgotPassword
-            toggleForgotPasswordAndLoginRegisterForms={
-              toggleForgotPasswordAndLoginRegisterForms
-            }
-            toggleLoading={toggleLoading}
+            {...{
+              toggleForgotPasswordAndLoginRegisterForms,
+              closeLoadingTransition,
+              toggleLoading,
+              closeLoadingTransition,
+              toggleRegistrationSuccess,
+            }}
           />
         ) : loginOrSignUp ? (
           <Login

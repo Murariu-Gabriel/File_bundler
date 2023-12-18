@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {useForm} from "react-hook-form"
 import {useNavigate } from "react-router-dom"
 
@@ -7,9 +8,12 @@ import PasswordInput from "../../../Components/Inputs/PasswordInput"
 // import loginStyle from "./login.module.scss"
 
 const ForgotPassword = ({
-  toggleForgotPasswordAndLoginRegisterForms,
-  toggleLoading
+  toggleForgotPasswordAndLoginRegisterForms, 
+  toggleLoading,
+  closeLoadingTransition,
 }) => {
+  const [sendEmailOrTypeCode, setSendEmailOrTypeCode] = useState(true)
+
   const form = useForm({
     defaultValues: {
       userName: "",
@@ -67,6 +71,13 @@ const ForgotPassword = ({
     // e.currentTarget.reset()
     toggleLoading()
     
+    console.log(1)
+    setTimeout(() => {
+    //  toggleLoading()
+      closeLoadingTransition()
+      console.log(2)
+    }, 2000)
+
     // after the loading is done you gave to toggle it off and load the other form
   }
 

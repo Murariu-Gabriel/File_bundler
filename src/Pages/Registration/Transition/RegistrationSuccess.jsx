@@ -1,6 +1,6 @@
 const RegistrationSuccess = ({
   registrationSuccess,
-  closeSuccessTransition,
+  closeRegistrationSuccessTransition,
 }) => {
   return (
     <div className={`${registrationSuccess ? "" : "hide"}`}>
@@ -20,7 +20,7 @@ const RegistrationSuccess = ({
       <button
         className="button_1"
         onClick={() => {
-          closeSuccessTransition()
+          closeRegistrationSuccessTransition()
         }}
       >
         Go to Login

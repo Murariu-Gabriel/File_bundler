@@ -1,10 +1,16 @@
+import { useEffect } from "react"
+import { useState } from "react"
 import Loading from "./Loading"
 import RegistrationSuccess from "./RegistrationSuccess"
 
 
 // CAUTION! You will need to chain more or operators for that success class if you want it to load the different components you are adding there
 
-const TransitionContainer = ({ animationToggle, registrationSuccess, closeSuccessTransition, isLoading }) => {
+const TransitionContainer = ({ animationToggle, registrationSuccess, closeRegistrationSuccessTransition, isLoading }) => {
+ 
+ 
+  
+ console.log(isLoading)
   return (
     <div
       className={`transition_div ${animationToggle ? `` : "active"} 
@@ -13,17 +19,13 @@ const TransitionContainer = ({ animationToggle, registrationSuccess, closeSucces
     >
       {registrationSuccess ? (
         <RegistrationSuccess
-          {...{ registrationSuccess, closeSuccessTransition }}
+          {...{ registrationSuccess, closeRegistrationSuccessTransition }}
         />
       ) : (
         ""
       )}
 
-      {isLoading ? (
-        <Loading />
-      ) : (
-        ""
-      )}
+      {isLoading ? <Loading {...{ isLoading }} /> : ""}
     </div>
   )
 }
